@@ -1,0 +1,37 @@
+{
+  "name": "inventory-app",
+  "version": "1.0.0",
+  "description": "Inventory Management System with Advanced Search",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:backend": "cd backend && npm run dev",
+    "setup": "npm install && npm run setup:backend && npm run setup:frontend",
+    "setup:frontend": "cd frontend && npm run setup",
+    "setup:backend": "cd backend && npm run setup",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:frontend": "cd frontend && npm test -- --watchAll=false",
+    "test:backend": "cd backend && npm test",
+    "lint": "npm run lint:backend && npm run lint:frontend",
+    "lint:frontend": "cd frontend && npm run lint",
+    "lint:backend": "cd backend && npm run lint",
+    "clean": "npm run clean:frontend && npm run clean:backend",
+    "clean:frontend": "cd frontend && npm run clean",
+    "clean:backend": "cd backend && rm -rf dist node_modules coverage"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  }
+}
